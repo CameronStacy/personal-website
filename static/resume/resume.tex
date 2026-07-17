@@ -1,0 +1,115 @@
+\documentclass[a4paper]{article}
+    \usepackage{fullpage}
+    \usepackage{amsmath}
+    \usepackage[margin=.5in]{geometry}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \usepackage{balance}
+    \usepackage[T1]{fontenc}
+    \textheight=12in
+    \pagestyle{empty}
+    \raggedright
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\area} [2] {
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
+
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+
+% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\vspace*{-30pt}
+
+%==== Profile ====%
+\begin{center}
+	{\Huge \scshape {Cameron Stacy}}\\
+	Cameron.Stacy@nike.com $\cdot$ (407) 443-0715\\
+\end{center}
+
+%==== Summary ====%
+\header{Summary}
+Senior Software Engineer with 8+ years of experience architecting distributed backend systems and cloud platforms at enterprise scale. Experienced designing event-driven, AWS-native infrastructure that powers billions of requests, petabytes of media delivery, and mission-critical applications. Strong track record leading complex technical initiatives across engineering, product, and business stakeholders, with a focus on scalable architecture, operational excellence, and measurable business impact.
+\vspace{3mm}
+
+%==== Experience ====%
+\header{Experience}
+
+\textbf {Nike, Inc.} \hfill Beaverton, Oregon\\
+
+\textit{Senior Software Engineer, Nike Media Platform} \hfill April 2025 - Present \\
+\vspace{-2mm}
+\begin{itemize} \itemsep -1em
+    \item Architected and delivered Nike's next-generation media platform, replacing Brightcove, Cloudinary, and Akamai with a unified AWS-native solution projected to save \$28M over 3 years while reducing media delivery costs by 95\%. \\
+    \item Led the migration of 150,000+ production videos across Nike.com, Nike App, SNKRS, NRC, and NTC, completing cutover 6 weeks ahead of contract expiration with zero production incidents, eliminating over \$2.4M/year in vendor contracts. \\
+    \item Designed a fault-tolerant, event-driven video platform using AWS MediaConvert, Lambda, SQS/SNS, Step Functions, CloudFront, and S3 supporting automated transcoding, subtitle generation in 75 languages, and intelligent AV1/HEVC/AVC delivery across 9 Nike business units. \\
+    \item Designed the architecture replacing Cloudinary, consolidating 27 environments into a single multi-tenant image platform processing 33B+ monthly requests, reducing bandwidth by 20\% through AVIF/WebP optimization while cutting infrastructure costs by 96\%. \\
+    \item Built a globally distributed, multi-region media platform using Terraform, GitHub Actions, ECS, Lambda, CloudFront, DynamoDB, and GraphQL with automated deployment, cross-region failover, and high availability, serving 9.5B requests and 5.5PB of media during Holiday 2025 with zero production incidents. \\
+    \item Developed AI-powered media services for image classification, athlete recognition, transcription, and background removal using AWS Step Functions, Rekognition, Transcribe, ONNX, and FastAPI, enabling searchable metadata and automated accessibility across Nike's global media catalog. \\
+\end{itemize}
+
+\textit{Software Engineer II, Near Real-Time Data Platform} \hfill February 2020 - April 2025 \\
+\vspace{-2mm}
+\begin{itemize} \itemsep -1em
+    \item Built a self-service platform enabling internal teams to provision and manage event-driven infrastructure at scale. \\
+    \item Developed Go-based control plane APIs and Kubernetes Custom Resource Definitions (CRDs) for declarative infrastructure management. \\
+    \item Enabled multi-region, globally distributed streaming systems supporting Nike’s core digital platforms. \\
+    \item Partnered with platform and product teams to support event-driven architectures powering downstream consumer experiences. \\
+\end{itemize}
+
+\textit{Software Engineer, Nike Streaming Platform} \hfill July 2018 - February 2020 \\
+\vspace{-3mm}
+\begin{itemize} \itemsep -1em
+    \item Built Go-based APIs supporting Kafka-based streaming systems processing high-volume event data. \\
+    \item Developed developer tooling (SDKs, CLI tools, Terraform provider) to improve internal platform adoption and usability. \\
+    \item Implemented message transformation and filtering systems enabling flexible downstream data consumption. \\
+    \item Built RBAC systems enforcing secure, governed access across shared infrastructure. \\
+    \item Developed migration tooling transitioning batch processing systems to real-time event streaming architectures. \\
+\end{itemize}
+
+\vspace{1mm}
+
+%==== Technical Skills ====%
+\header{Technical Skills}
+\vspace{1mm}
+\begin{tabular}{ l l }
+    Programming Languages:      & TypeScript, Go, Python, Java, Node.js \\
+    APIs \& Web:                & REST APIs, GraphQL, backend systems, publishing platforms \\
+    Cloud \& Infrastructure:    & AWS (VPC, ECS, S3, ELB, Lambda, Step Functions, CloudFront) \\
+    Media Systems:              & AWS Elemental (MediaLive, MediaPackage, MediaConvert), NMP media pipelines \\
+    Data Systems:               & Kafka, DynamoDB, PostgreSQL, Snowflake, etcd \\
+    DevOps \& Tooling:          & Terraform, GitHub Actions, Jenkins \\
+    Architecture:               & Event-driven systems, distributed systems, media delivery platforms, publishing systems \\
+\end{tabular}
+
+\vspace{3mm}
+
+%==== Education ====%
+\header{Education}
+\textbf{Florida State University}\hfill Tallahassee, Florida\\
+{\textit {BS Computer Science}} \hfill Fall 2013 - Spring 2018\\
+
+\vspace{3mm}
+
+%==== Leadership Experience ====%
+\header{Leadership Experience}
+\textbf{Mentor, Emerging Leaders}\\
+Mentored early-career engineers through interview preparation, onboarding, and career development in software engineering. \\
+
+\vfill
+\end{document}\]
