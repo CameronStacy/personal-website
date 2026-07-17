@@ -2,13 +2,13 @@ import { useState } from 'react'
 
 const blogPosts = [
   {
-    title: 'Building a calm personal site',
-    excerpt: 'A simple approach to creating a site that highlights your work without overcomplicating the stack.',
+    title: 'Designing platform-level abstractions',
+    excerpt: 'How I think about building reusable systems that scale cleanly across teams and products.',
     date: 'Jul 2026',
   },
   {
-    title: 'Why I keep a small technical notebook',
-    excerpt: 'Short notes about debugging habits, API experiments, and the systems I keep revisiting.',
+    title: 'From streaming systems to product impact',
+    excerpt: 'What I learned translating platform engineering work into measurable business outcomes.',
     date: 'Jun 2026',
   },
 ]
@@ -17,63 +17,57 @@ const resumeSummary = 'Senior Software Engineer with 8+ years of experience arch
 
 const experience = [
   {
-    company: 'Nike, Inc.',
-    location: 'Beaverton, Oregon',
-    title: 'Senior Software Engineer, Nike Media Platform',
-    date: 'April 2025 - Present',
+    id: 'media-platform',
+    title: 'Senior Software Engineer',
+    company: 'Nike Media Platform',
+    period: '2025 – Present',
+    highlight: 'Rebuilt a global media platform with AWS-native infrastructure and massive cost savings.',
     bullets: [
-      'Architected and delivered Nike\'s next-generation media platform, replacing Brightcove, Cloudinary, and Akamai with a unified AWS-native solution projected to save $28M over 3 years while reducing media delivery costs by 95%.',
-      'Led the migration of 150,000+ production videos across Nike.com, Nike App, SNKRS, NRC, and NTC, completing cutover 6 weeks ahead of contract expiration with zero production incidents, eliminating over $2.4M/year in vendor contracts.',
-      'Designed a fault-tolerant, event-driven video platform using AWS MediaConvert, Lambda, SQS/SNS, Step Functions, CloudFront, and S3 supporting automated transcoding, subtitle generation in 75 languages, and intelligent AV1/HEVC/AVC delivery across 9 Nike business units.',
+      'Designed a unified media platform replacing Brightcove, Cloudinary, and Akamai.',
+      'Led a 150,000+ video migration with zero production incidents.',
+      'Built event-driven services for transcoding, localization, and intelligent content delivery.',
     ],
   },
   {
-    company: 'Nike, Inc.',
-    location: 'Beaverton, Oregon',
-    title: 'Software Engineer II, Near Real-Time Data Platform',
-    date: 'February 2020 - April 2025',
+    id: 'data-platform',
+    title: 'Software Engineer II',
+    company: 'Near Real-Time Data Platform',
+    period: '2020 – 2025',
+    highlight: 'Created self-service infrastructure for event-driven systems at enterprise scale.',
     bullets: [
-      'Built a self-service platform enabling internal teams to provision and manage event-driven infrastructure at scale.',
-      'Developed Go-based control plane APIs and Kubernetes Custom Resource Definitions (CRDs) for declarative infrastructure management.',
-      'Enabled multi-region, globally distributed streaming systems supporting Nike’s core digital platforms.',
+      'Built control plane APIs and CRDs for declarative infrastructure management.',
+      'Enabled multi-region streaming systems supporting core digital experiences.',
+      'Partnered across product and platform teams to accelerate delivery.',
     ],
   },
   {
-    company: 'Nike, Inc.',
-    location: 'Beaverton, Oregon',
-    title: 'Software Engineer, Nike Streaming Platform',
-    date: 'July 2018 - February 2020',
+    id: 'streaming-platform',
+    title: 'Software Engineer',
+    company: 'Nike Streaming Platform',
+    period: '2018 – 2020',
+    highlight: 'Delivered streaming APIs and tooling that helped modernize internal platform adoption.',
     bullets: [
-      'Built Go-based APIs supporting Kafka-based streaming systems processing high-volume event data.',
-      'Developed developer tooling (SDKs, CLI tools, Terraform provider) to improve internal platform adoption and usability.',
-      'Implemented message transformation and filtering systems enabling flexible downstream data consumption.',
+      'Built Go-based APIs for Kafka-driven event processing systems.',
+      'Developed tooling and SDKs that improved platform usability.',
+      'Implemented message transformation and access governance for shared systems.',
     ],
   },
 ]
 
 const technicalSkills = [
-  'Programming Languages: TypeScript, Go, Python, Java, Node.js',
-  'APIs & Web: REST APIs, GraphQL, backend systems, publishing platforms',
-  'Cloud & Infrastructure: AWS (VPC, ECS, S3, ELB, Lambda, Step Functions, CloudFront)',
-  'Media Systems: AWS Elemental (MediaLive, MediaPackage, MediaConvert), NMP media pipelines',
-  'Data Systems: Kafka, DynamoDB, PostgreSQL, Snowflake, etcd',
-  'DevOps & Tooling: Terraform, GitHub Actions, Jenkins',
-  'Architecture: Event-driven systems, distributed systems, media delivery platforms, publishing systems',
-]
-
-const education = [
-  'Florida State University',
-  'BS Computer Science',
-  'Fall 2013 - Spring 2018',
-]
-
-const leadership = [
-  'Mentor, Emerging Leaders',
-  'Mentored early-career engineers through interview preparation, onboarding, and career development in software engineering.',
+  'Distributed systems',
+  'AWS',
+  'Event-driven architecture',
+  'Go, TypeScript, Python, Java',
+  'Kafka, DynamoDB, PostgreSQL, Snowflake',
+  'Terraform, GitHub Actions, Jenkins',
 ]
 
 function App() {
+  const [activeRole, setActiveRole] = useState(experience[0].id)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+
+  const activeExperience = experience.find((role) => role.id === activeRole) ?? experience[0]
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -90,102 +84,87 @@ function App() {
   return (
     <div className="page-shell">
       <header className="hero">
-        <div className="hero-grid">
-          <div>
-            <p className="eyebrow">Senior software engineer • platform builder • technical leader</p>
-            <h1>Cameron Stacy</h1>
-            <p className="hero-copy">
-              I build large-scale distributed systems, cloud-native platforms, and event-driven infrastructure that power mission-critical experiences at global scale.
-            </p>
-            <div className="hero-actions">
-              <nav className="nav-links" aria-label="Site sections">
-                <a href="#resume">Resume</a>
-                <a href="#blog">Blog</a>
-                <a href="#contact">Contact</a>
-              </nav>
-              <a className="download-btn" href="/resume.pdf" download="cameron_stacy_resume.pdf">
-                Download PDF resume
-              </a>
-            </div>
+        <div className="hero-copy-block">
+          <p className="eyebrow">Senior software engineer • platform builder • technical leader</p>
+          <h1>Cameron Stacy</h1>
+          <p className="hero-text">
+            I build resilient distributed systems and cloud-native platforms that turn complex infrastructure into reliable product experiences.
+          </p>
+          <div className="hero-actions">
+            <a className="primary-btn" href="#resume">Explore my work</a>
+            <a className="secondary-btn" href="/resume.pdf" download="cameron_stacy_resume.pdf">
+              Download resume
+            </a>
           </div>
-          <div className="profile-card">
-            <img src="/static/images/self.png" alt="Cameron Stacy" />
-            <div className="profile-badges">
-              <span>8+ years</span>
-              <span>Distributed systems</span>
-              <span>AWS</span>
+        </div>
+
+        <div className="hero-panel">
+          <div className="panel-glow" />
+          <img src="/static/images/self.png" alt="Cameron Stacy" />
+          <div className="hero-stats">
+            <div>
+              <strong>8+ years</strong>
+              <span>engineering experience</span>
+            </div>
+            <div>
+              <strong>Global scale</strong>
+              <span>media and platform systems</span>
+            </div>
+            <div>
+              <strong>AWS + distributed</strong>
+              <span>event-driven systems</span>
             </div>
           </div>
         </div>
       </header>
 
       <main>
-        <section id="resume" className="card resume-card">
+        <section id="resume" className="card story-card">
           <div className="section-heading">
-            <p className="eyebrow">Resume</p>
-            <h2>Experience, skills, and leadership</h2>
+            <p className="eyebrow">Career story</p>
+            <h2>From platform engineering to high-impact systems</h2>
           </div>
-          <p className="resume-copy">{resumeSummary}</p>
-          <div className="highlight-strip">
-            <span>Global-scale platform work</span>
-            <span>Event-driven architecture</span>
-            <span>Cloud infrastructure</span>
-            <span>Leadership and execution</span>
-          </div>
+          <p className="summary-text">{resumeSummary}</p>
 
-          <div className="resume-section">
-            <h3>Experience</h3>
+          <div className="role-switcher" role="tablist" aria-label="Career highlights">
             {experience.map((role) => (
-              <article key={`${role.company}-${role.title}`} className="resume-entry">
-                <div className="resume-entry-heading">
-                  <div>
-                    <h4>{role.company}</h4>
-                    <p className="resume-location">{role.location}</p>
-                  </div>
-                  <span>{role.date}</span>
-                </div>
-                <p className="resume-role-title">{role.title}</p>
-                <ul>
-                  {role.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              </article>
+              <button
+                key={role.id}
+                className={`role-pill ${activeRole === role.id ? 'active' : ''}`}
+                onClick={() => setActiveRole(role.id)}
+              >
+                {role.company}
+              </button>
             ))}
           </div>
 
-          <div className="resume-grid">
-            <div className="resume-section">
-              <h3>Technical Skills</h3>
-              <ul>
-                {technicalSkills.map((skill) => (
-                  <li key={skill}>{skill}</li>
-                ))}
-              </ul>
+          <div className="role-card">
+            <div className="role-meta">
+              <div>
+                <p className="eyebrow">Selected focus</p>
+                <h3>{activeExperience.title} · {activeExperience.company}</h3>
+              </div>
+              <span>{activeExperience.period}</span>
             </div>
-            <div className="resume-section">
-              <h3>Education</h3>
-              <ul>
-                {education.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            <p className="role-highlight">{activeExperience.highlight}</p>
+            <ul>
+              {activeExperience.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
           </div>
 
-          <div className="resume-section">
-            <h3>Leadership Experience</h3>
-            <article className="resume-entry">
-              <p className="resume-role-title">{leadership[0]}</p>
-              <p>{leadership[1]}</p>
-            </article>
+          <div className="skill-grid">
+            {technicalSkills.map((skill) => (
+              <div key={skill} className="skill-chip">{skill}</div>
+            ))}
           </div>
         </section>
 
         <section id="blog" className="card">
           <div className="section-heading">
-            <p className="eyebrow">Blog</p>
-            <h2>Technical writing</h2>
+            <p className="eyebrow">Writing</p>
+            <h2>Notes on systems, product, and scale</h2>
           </div>
           <div className="blog-list">
             {blogPosts.map((post) => (
@@ -201,7 +180,7 @@ function App() {
         <section id="contact" className="card">
           <div className="section-heading">
             <p className="eyebrow">Contact</p>
-            <h2>Say hello</h2>
+            <h2>Let’s talk about the next challenge</h2>
           </div>
           <form className="contact-form" onSubmit={handleSubmit}>
             <label>
