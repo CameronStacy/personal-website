@@ -247,10 +247,46 @@ body {
 
 @media (max-width: 640px) {
   .page-shell {
-    padding: 1rem 0.9rem 2.25rem;
+    padding: 0.9rem 0.8rem 2rem;
+  }
+
+  .resume-header {
+    gap: 1rem;
+    padding: 0.4rem 0 1rem;
+  }
+
+  .header-copy h1 {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 0.97rem;
+  }
+
+  .action-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-btn, .secondary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .profile-card {
+    max-width: none;
+    padding: 0.8rem;
   }
 
   .resume-section {
     padding: 1rem;
+  }
+
+  .entry-header {
+    flex-direction: column;
+  }
+
+  .entry-dates {
+    font-size: 0.9rem;
   }
 }
