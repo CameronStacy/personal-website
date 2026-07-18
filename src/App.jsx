@@ -1,3 +1,5 @@
+import profileImage from '../static/images/self.png'
+
 const summary = 'Senior Software Engineer with 8+ years of experience architecting distributed backend systems and cloud platforms at enterprise scale. Experienced designing event-driven, AWS-native infrastructure that powers billions of requests, petabytes of media delivery, and mission-critical applications.'
 
 const experience = [
@@ -90,7 +92,7 @@ function App() {
           </div>
         </div>
         <div className="profile-card">
-          <img src="/static/images/self.png" alt="Cameron Stacy" />
+          <img src={profileImage} alt="Cameron Stacy" />
           <div className="profile-meta">
             <span>8+ years</span>
             <span>Distributed systems</span>
